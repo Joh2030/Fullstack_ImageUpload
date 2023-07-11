@@ -1,6 +1,8 @@
 const express = require("express");
 const multer = require("multer");
 const cors = require("cors");
+const userRouter = require("./routes/user");
+const productRouter = require("./routes/products");
 require("dotenv/config");
 require("./db");
 
@@ -22,9 +24,6 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-const userRouter = require("./routes/user");
-const productRouter = require("./routes/products");
-
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Example app listening on http://localhost:${port}`);
 });

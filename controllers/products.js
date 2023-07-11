@@ -1,10 +1,15 @@
 const mongoose = require("mongoose");
-const Property = require("../models/products");
+const Product = require("../models/products");
 
 const createProduct = async (req, res) => {
   try {
-    const { body } = req;
-    const product = await Product.create(body);
+    const { name, price, owner } = req;
+    const product = await Product.create({
+      name,
+      price,
+      image: req.file.filename,
+      owner,
+    });
     res.status(201).json(product);
   } catch (error) {
     res.send(error.message);

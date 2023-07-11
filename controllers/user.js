@@ -3,11 +3,11 @@ const User = require("../models/user");
 
 const createUser = async (req, res) => {
   try {
-    const { body } = req;
-    const user = await User.create(body);
+    const { email, name } = req.body;
+    const user = await User.create(email, name);
     res.status(201).json(user);
   } catch (error) {
-    res.send(error.message);
+    res.status(500).send("something went wrong");
   }
 };
 

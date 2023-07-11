@@ -16,7 +16,8 @@ const productSchema = new mongoose.Schema({
   },
   owner: {
     id: mongoose.Types.ObjectId,
-    // ref: "user",
+    // ref: "User",
+    // passing on error when i uncomment line 19
   },
 });
 
